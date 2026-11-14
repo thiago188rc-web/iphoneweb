@@ -1,0 +1,33 @@
+======================================================================
+GUÍA DE FOTOGRAFÍAS REALES — PLANTILLA IPHONE WEB
+======================================================================
+
+Por defecto, la plantilla renderiza cada producto mediante un sistema visual
+de "materiales" (color de acabado, reflejo dinámico, grano y luz) sin necesidad
+de fotos externas.
+
+Para agregar fotografías reales de los equipos en tus demos o para una tienda:
+
+1. FORMATO Y TAMAÑO RECOMENDADO:
+   - Formato: WebP (óptimo para carga ultrarrápida), PNG o JPG.
+   - Proporción: 3:4 o 4:5 (vertical).
+   - Resolución: 800x1000 px o 1000x1250 px.
+   - Fondo: Fondo transparente o fondo oscuro (#101318 / #08090B) para mantener
+     la estética titanium de la plantilla.
+
+2. CONVENCIÓN DE NOMBRES SUGERIDA:
+   - img/ip15pm-titanio-natural.webp
+   - img/ip15pm-titanio-negro.webp
+   - img/ip15p-titanio-azul.webp
+   - img/ip14p-oro.webp
+   ... etc.
+
+3. CÓMO VINCULAR UNA FOTO:
+   - En la configuración de catálogo (en `store.config.js` o en el panel de gestión),
+     podés asignar la ruta de la foto a cada acabado o equipo.
+   - En el HTML, dentro de cualquier elemento con clase `.stage`:
+     <img class="ph" src="img/ip15pm-titanio-natural.webp" alt="iPhone 15 Pro Max" loading="lazy">
+   - La clase CSS `.ph` ya viene preconfigurada para ajustarse automáticamente
+     con object-fit: cover y mantener las proporciones exactas.
+
+======================================================================

@@ -23,7 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
-<script type="application/ld+json">
+<script src="./store.config.js"></script>
+<script type="application/ld+json" id="storeSchema">
 {"@context":"https://schema.org","@type":"Store","name":"IPHONESSTORE",
 "description":"Venta de equipos Apple y accesorios importados. Oficina en Ramos Mejía, Buenos Aires.",
 "telephone":"+5491149386108",
@@ -472,6 +473,30 @@ p{margin:0}
   transition:.3s var(--e);pointer-events:none}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
+
+/* ── pestañas y personalización de demo ── */
+.pn-tabs{display:flex;gap:10px;margin-bottom:24px;border-bottom:1px solid var(--line);padding-bottom:14px;overflow-x:auto}
+.pn-tab{font-family:var(--dsp);font-size:14.5px;font-weight:600;padding:10px 18px;border-radius:100px;
+  color:var(--mute);border:1px solid var(--line-2);transition:.2s var(--e);white-space:nowrap}
+.pn-tab:hover{color:#fff;border-color:#5A626B}
+.pn-tab.active{background:var(--white);color:#08090B;border-color:var(--white)}
+.pn-panel{display:none}
+.pn-panel.active{display:block}
+.preset-box{margin:18px 0 22px;border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--ink-2)}
+.preset-box .lb{font-size:13px;color:var(--mute-2);display:block;margin-bottom:10px;font-weight:500}
+.preset-chips{display:flex;flex-wrap:wrap;gap:8px}
+.preset-chips .chip{font-size:13px;padding:8px 14px}
+.preset-chips .chip:hover{background:var(--ink-3);color:#fff}
+.cfg-form{margin-top:20px}
+.form-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.form-grid{grid-template-columns:1fr 1fr}}
+.form-field{display:grid;gap:6px}
+.form-field label{font-size:13px;color:var(--mute);font-weight:500}
+.form-field input{background:var(--ink-2);border:1px solid var(--line-2);border-radius:12px;color:#fff;
+  font:inherit;font-size:14.5px;padding:12px 14px;transition:border-color .2s}
+.form-field input:focus{outline:none;border-color:var(--white);background:var(--ink-3)}
+.cfg-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;align-items:center}
+
 /* ── reveal ── */
 .rv{opacity:0;transform:translateY(24px)}
 .rv.in{opacity:1;transform:none;transition:opacity .9s var(--e),transform .9s var(--e)}
@@ -545,7 +570,7 @@ p{margin:0}
     <div class="wrap hero-in">
       <div class="hero-txt">
         <h1 class="h1">Tu iPhone,<br>en mano.</h1>
-        <p class="p" style="margin-top:24px">Equipos y accesorios importados. Cinco años vendiendo, más de 5.000 clientes y una oficina en Ramos Mejía donde podés venir a buscarlo.</p>
+        <p class="p" style="margin-top:24px">Equipos y accesorios importados. <span class="dyn-years">Cinco años</span> vendiendo, más de <span class="dyn-clients">5.000</span> clientes y una oficina en <span class="dyn-city">Ramos Mejía</span> donde podés venir a buscarlo.</p>
       </div>
 
       <div class="stage hero-stage" id="heroStage">
@@ -563,7 +588,7 @@ p{margin:0}
             Consultar por WhatsApp
           </a>
         </div>
-        <p class="hero-foot"><i></i>Ramos Mejía, Buenos Aires · Atención por WhatsApp</p>
+        <p class="hero-foot"><i></i><span class="dyn-loc">Ramos Mejía, Buenos Aires</span> · Atención por WhatsApp</p>
       </div>
     </div>
   </section>
@@ -640,8 +665,8 @@ p{margin:0}
   <section class="sec" id="comunidad" style="padding-top:0">
     <div class="wrap head split rv" style="margin-bottom:clamp(24px,3.4vw,40px)">
       <div>
-        <h2 class="h2">Cinco años<br>entregando.</h2>
-        <p class="p" style="margin-top:16px">Más de 5.000 personas ya compraron acá y más de 52.000 nos siguen todos los días. La cuenta está abierta: mirá el historial.</p>
+        <h2 class="h2"><span class="dyn-years">Cinco años</span><br>entregando.</h2>
+        <p class="p" style="margin-top:16px">Más de <span class="dyn-clients">5.000</span> personas ya compraron acá y más de <span class="dyn-followers">52.000</span> nos siguen todos los días. La cuenta está abierta: mirá el historial.</p>
       </div>
       <a class="b b-l" href="https://www.instagram.com/iphonesstore.ar" target="_blank" rel="noopener noreferrer">@iphonesstore.ar</a>
     </div>
@@ -657,12 +682,12 @@ p{margin:0}
       <div class="of">
         <div class="rv">
           <h2 class="h2" style="font-size:clamp(2.1rem,5.2vw,4rem)">Existe una puerta.<br>Y podés tocarla.</h2>
-          <p class="p" style="margin-top:22px;font-size:clamp(16.5px,1.8vw,19px)">Casi todas las tiendas de iPhone viven adentro de Instagram y ahí terminan. Nosotros tenemos oficina en Ramos Mejía: coordinás, venís, revisás el equipo y recién ahí cerrás.</p>
+          <p class="p" style="margin-top:22px;font-size:clamp(16.5px,1.8vw,19px)">Casi todas las tiendas de iPhone viven adentro de Instagram y ahí terminan. Nosotros tenemos oficina en <span class="dyn-city">Ramos Mejía</span>: coordinás, venís, revisás el equipo y recién ahí cerrás.</p>
           <div class="rows">
-            <div class="row"><span>Zona</span><b>Ramos Mejía, Buenos Aires</b></div>
-            <div class="row"><span>Cómo llegar</span><b>Te pasamos la dirección al coordinar</b></div>
-            <div class="row"><span>Atención</span><b>WhatsApp +54 9 11 4938-6108</b></div>
-            <div class="row"><span>Instagram</span><b>@iphonesstore.ar</b></div>
+            <div class="row"><span>Zona</span><b class="dyn-loc">Ramos Mejía, Buenos Aires</b></div>
+            <div class="row"><span>Cómo llegar</span><b class="dyn-address-info">Te pasamos la dirección al coordinar</b></div>
+            <div class="row"><span>Atención</span><b>WhatsApp <span class="dyn-wa-formatted">+54 9 11 4938-6108</span></b></div>
+            <div class="row"><span>Instagram</span><b class="dyn-ig-handle">@iphonesstore.ar</b></div>
           </div>
           <a class="b b-w" style="margin-top:28px" data-wa="Hola IPHONESSTORE! Quiero coordinar para pasar por la oficina de Ramos Mejía.">Coordinar una visita</a>
         </div>
@@ -687,7 +712,7 @@ p{margin:0}
             <g stroke="#C6C2B9" stroke-width="3" fill="none"><path d="M-10 300L300 -10"/></g>
           </svg>
           <span class="pin"><i></i></span>
-          <span class="cap">Ramos Mejía</span>
+          <span class="cap dyn-city">Ramos Mejía</span>
         </div>
       </div>
 
@@ -717,17 +742,17 @@ p{margin:0}
       <div class="head rv"><h2 class="h2">Preguntas.</h2></div>
       <div class="faq rv">
         <details><summary>¿Puedo ver el equipo antes de pagar?</summary>
-          <p>Sí, y es lo que recomendamos. Coordinás por WhatsApp, venís a la oficina de Ramos Mejía y revisás el equipo en persona antes de cerrar la operación.</p></details>
+          <p>Sí, y es lo que recomendamos. Coordinás por WhatsApp, venís a la oficina de <span class="dyn-city">Ramos Mejía</span> y revisás el equipo en persona antes de cerrar la operación.</p></details>
         <details><summary>¿Por qué los precios no están publicados?</summary>
           <p>Porque en Argentina el precio de un equipo importado cambia seguido y preferimos no mostrarte un número que hoy no sea real. Escribinos y te pasamos el precio del día del modelo que quieras.</p></details>
         <details><summary>¿Cómo sé que la tienda es seria?</summary>
-          <p>Cinco años vendiendo, más de 5.000 clientes y una cuenta con más de 52.000 seguidores donde está publicado todo el historial. Y una oficina física a la que podés venir.</p></details>
+          <p><span class="dyn-years">Cinco años</span> vendiendo, más de <span class="dyn-clients">5.000</span> clientes y una cuenta con más de <span class="dyn-followers">52.000</span> seguidores donde está publicado todo el historial. Y una oficina física a la que podés venir.</p></details>
         <details><summary>¿Qué formas de pago manejan?</summary>
           <p>Te confirmamos las opciones disponibles en la consulta, según el equipo y el momento. Preguntanos antes de venir así llegás con todo claro.</p></details>
         <details><summary>¿Qué condiciones tiene cada equipo?</summary>
           <p>Te las contamos por WhatsApp antes de que decidas nada. Preferimos que llegues a la oficina sabiendo exactamente qué estás comprando.</p></details>
         <details><summary>Estoy en otra zona, ¿qué hago?</summary>
-          <p>La entrega se coordina en la oficina de Ramos Mejía. Si estás lejos, escribinos igual y vemos cómo resolverlo en tu caso.</p></details>
+          <p>La entrega se coordina en la oficina de <span class="dyn-city">Ramos Mejía</span>. Si estás lejos, escribinos igual y vemos cómo resolverlo en tu caso.</p></details>
         <details><summary>¿Toman mi equipo usado?</summary>
           <p>Contanos qué equipo tenés, capacidad y estado, y te decimos cómo seguimos.</p></details>
       </div>
@@ -756,7 +781,7 @@ p{margin:0}
     <div class="ft-g">
       <div>
         <img src="./assets/logo.png" alt="IPHONESSTORE" width="900" height="450" loading="lazy" decoding="async">
-        <p class="p" style="font-size:14.5px;max-width:32ch">Equipos y accesorios Apple importados. Oficina en Ramos Mejía, Buenos Aires.</p>
+        <p class="p" style="font-size:14.5px;max-width:32ch">Equipos y accesorios Apple importados. Oficina en <span class="dyn-loc">Ramos Mejía, Buenos Aires</span>.</p>
       </div>
       <div>
         <h4>Tienda</h4>
@@ -771,14 +796,14 @@ p{margin:0}
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a data-wa="Hola IPHONESSTORE! Quiero hacerles una consulta.">WhatsApp +54 9 11 4938-6108</a></li>
+          <li><a data-wa="Hola IPHONESSTORE! Quiero hacerles una consulta.">WhatsApp <span class="dyn-wa-formatted">+54 9 11 4938-6108</span></a></li>
           <li><a href="https://www.instagram.com/iphonesstore.ar" target="_blank" rel="noopener noreferrer">@iphonesstore.ar</a></li>
-          <li><a href="#oficina">Ramos Mejía, Buenos Aires</a></li>
+          <li><a href="#oficina"><span class="dyn-loc">Ramos Mejía, Buenos Aires</span></a></li>
         </ul>
       </div>
     </div>
     <div class="ft-b">
-      <span>© 2026 IPHONESSTORE</span>
+      <span>© 2026 <span class="dyn-name">IPHONESSTORE</span></span>
       <span><button type="button" id="openPanel">Ingreso</button></span>
     </div>
   </div>
@@ -814,23 +839,93 @@ p{margin:0}
 <div class="panel" id="panel" role="dialog" aria-modal="true" aria-label="Panel de gestión">
   <div class="pn-t">
     <img src="./assets/logo.png" alt="IPHONESSTORE" width="900" height="450" loading="lazy" decoding="async">
-    <span class="tg">Gestión</span>
+    <span class="tg">Gestión & Demo</span>
     <button class="x" id="panelX" aria-label="Cerrar">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
   <div class="pn-b">
-    <h2>Catálogo</h2>
-    <p class="p" style="margin-top:10px">Cambiá un precio, sacá un equipo de la vitrina o destacalo. Al cerrar, los cambios se ven en la web.</p>
-    <div class="tbw">
-      <table class="tb">
-        <thead><tr><th>Equipo</th><th>Precio</th><th>Destacado</th><th>Publicado</th></tr></thead>
-        <tbody id="pnBody"></tbody>
-      </table>
+    <div class="pn-tabs" role="tablist">
+      <button class="pn-tab active" type="button" id="tabBtnCat" role="tab" aria-selected="true">📦 Catálogo de Equipos</button>
+      <button class="pn-tab" type="button" id="tabBtnDemo" role="tab" aria-selected="false">⚡ Personalizar Tienda / Demo</button>
     </div>
-    <div class="note">
-      <p><b>Qué se administra desde acá.</b> Equipos, fotos, acabados, capacidades, precios, disponibilidad, destacados, accesorios y preguntas frecuentes. Con usuario y contraseña, sin tocar código.</p>
-      <p style="margin-top:10px">Esta vista es una muestra: los cambios se aplican en la web pero no se guardan al recargar.</p>
+
+    <!-- Pestaña 1: Catálogo -->
+    <div class="pn-panel active" id="tabPanelCat" role="tabpanel">
+      <h2>Catálogo</h2>
+      <p class="p" style="margin-top:10px">Cambiá un precio, sacá un equipo de la vitrina o destacalo. Al cerrar, los cambios se ven en la web.</p>
+      <div class="tbw">
+        <table class="tb">
+          <thead><tr><th>Equipo</th><th>Precio</th><th>Destacado</th><th>Publicado</th></tr></thead>
+          <tbody id="pnBody"></tbody>
+        </table>
+      </div>
+      <div class="note">
+        <p><b>Qué se administra desde acá.</b> Equipos, fotos, acabados, capacidades, precios, disponibilidad, destacados, accesorios y preguntas frecuentes.</p>
+        <p style="margin-top:10px">Los cambios que hagas en catálogo y tienda se guardan en tu navegador para tus demos y presentaciones.</p>
+      </div>
+    </div>
+
+    <!-- Pestaña 2: Personalizar Demo -->
+    <div class="pn-panel" id="tabPanelDemo" role="tabpanel">
+      <h2>Personalizar Demo para Clientes</h2>
+      <p class="p" style="margin-top:10px">Cambiá los datos de la tienda al instante antes o durante una reunión. Se actualizan automáticamente WhatsApp, Instagram, ubicación y nombres.</p>
+
+      <div class="preset-box">
+        <span class="lb">Presets Rápidos para Demos:</span>
+        <div class="preset-chips">
+          <button class="chip" type="button" data-preset="orig">IPHONESSTORE (Ramos Mejía)</button>
+          <button class="chip" type="button" data-preset="palermo">Palermo Phone (Palermo Soho)</button>
+          <button class="chip" type="button" data-preset="belgrano">Apple Point (Belgrano)</button>
+          <button class="chip" type="button" data-preset="cordoba">iStore CBA (Córdoba)</button>
+        </div>
+      </div>
+
+      <form id="storeForm" class="cfg-form" onsubmit="return false;">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="fName">Nombre de la Tienda</label>
+            <input type="text" id="fName" placeholder="IPHONESSTORE">
+          </div>
+          <div class="form-field">
+            <label for="fWa">WhatsApp (sin + ni espacios)</label>
+            <input type="text" id="fWa" placeholder="5491149386108">
+          </div>
+          <div class="form-field">
+            <label for="fWaFmt">WhatsApp Visible</label>
+            <input type="text" id="fWaFmt" placeholder="+54 9 11 4938-6108">
+          </div>
+          <div class="form-field">
+            <label for="fIg">Instagram (usuario sin @)</label>
+            <input type="text" id="fIg" placeholder="iphonesstore.ar">
+          </div>
+          <div class="form-field">
+            <label for="fLoc">Ubicación Completa</label>
+            <input type="text" id="fLoc" placeholder="Ramos Mejía, Buenos Aires">
+          </div>
+          <div class="form-field">
+            <label for="fCity">Ciudad / Zona Corta</label>
+            <input type="text" id="fCity" placeholder="Ramos Mejía">
+          </div>
+          <div class="form-field">
+            <label for="fYears">Años de Trayectoria</label>
+            <input type="text" id="fYears" placeholder="Cinco años">
+          </div>
+          <div class="form-field">
+            <label for="fClients">Cantidad de Clientes</label>
+            <input type="text" id="fClients" placeholder="+5.000">
+          </div>
+        </div>
+
+        <div class="cfg-actions">
+          <button type="button" class="b b-w" id="btnSaveStore">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Aplicar Cambios en Vivo
+          </button>
+          <button type="button" class="b b-l" id="btnResetStore">Restablecer Original</button>
+          <button type="button" class="b b-l" id="btnCopyConfig">Copiar store.config.js</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -840,12 +935,70 @@ p{margin:0}
 <script>
 (function(){
 "use strict";
-var TEL="5491149386108";
-function wa(t){return "https://wa.me/"+TEL+"?text="+encodeURIComponent(t);}
-var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ─── catálogo (estructura lista para base de datos) ─── */
-var P=[
+var PRESETS = {
+  orig: {
+    name: "IPHONESSTORE",
+    tagline: "Tu iPhone, en mano.",
+    whatsapp: "5491149386108",
+    whatsappFormatted: "+54 9 11 4938-6108",
+    instagram: "iphonesstore.ar",
+    location: "Ramos Mejía, Buenos Aires",
+    cityShort: "Ramos Mejía",
+    addressInfo: "Te pasamos la dirección al coordinar",
+    years: "Cinco años",
+    clients: "+5.000",
+    followers: "+52.000"
+  },
+  palermo: {
+    name: "PALERMO PHONE",
+    tagline: "Tu iPhone en Palermo Soho.",
+    whatsapp: "5491122334455",
+    whatsappFormatted: "+54 9 11 2233-4455",
+    instagram: "palermophone.ar",
+    location: "Palermo Soho, Buenos Aires",
+    cityShort: "Palermo Soho",
+    addressInfo: "Showroom en Armenia y Honduras",
+    years: "Cuatro años",
+    clients: "+4.200",
+    followers: "+38.000"
+  },
+  belgrano: {
+    name: "APPLE POINT BELGRANO",
+    tagline: "Equipos Apple garantizados.",
+    whatsapp: "5491155667788",
+    whatsappFormatted: "+54 9 11 5566-7788",
+    instagram: "applepoint.belgrano",
+    location: "Belgrano, Buenos Aires",
+    cityShort: "Belgrano",
+    addressInfo: "Oficina comercial en Cabildo y Juramento",
+    years: "Seis años",
+    clients: "+7.000",
+    followers: "+64.000"
+  },
+  cordoba: {
+    name: "iSTORE CÓRDOBA",
+    tagline: "Los mejores iPhones de Córdoba.",
+    whatsapp: "5493512345678",
+    whatsappFormatted: "+54 9 351 234-5678",
+    instagram: "istore.cordoba",
+    location: "Nueva Córdoba, Córdoba",
+    cityShort: "Nueva Córdoba",
+    addressInfo: "Oficina en Av. Hipólito Yrigoyen",
+    years: "Tres años",
+    clients: "+3.000",
+    followers: "+29.000"
+  }
+};
+
+var baseCfg = (window.STORE_CONFIG && window.STORE_CONFIG.store) || PRESETS.orig;
+var savedState = null;
+try {
+  savedState = JSON.parse(localStorage.getItem("iphone_store_demo_config"));
+} catch(e){}
+
+var CFG = Object.assign({}, PRESETS.orig, baseCfg, savedState ? savedState.store : {});
+var P = (savedState && savedState.products) ? savedState.products : ((window.STORE_CONFIG && window.STORE_CONFIG.products) || [
  {id:"ip15pm",n:"iPhone 15 Pro Max",l:"iPhone 15",caps:["256 GB","512 GB","1 TB"],
   ac:[["Titanio natural","#BEB6A9"],["Titanio negro","#40414A"],["Titanio blanco","#E4E2DD"],["Titanio azul","#4A5867"]],
   dest:true,vis:true,precio:""},
@@ -870,14 +1023,76 @@ var P=[
  {id:"ipse",n:"iPhone SE",l:"iPhone SE",caps:["64 GB","128 GB"],
   ac:[["Blanco estelar","#E9E5DE"],["Medianoche","#2E323A"]],
   dest:false,vis:true,precio:""}
-];
-var ACC=[
+]);
+
+var ACC = (window.STORE_CONFIG && window.STORE_CONFIG.accessories) || [
  ["Fundas","Para el modelo que tengas","#464A52"],
  ["Vidrios templados","Protección de pantalla","#B7C3CB"],
  ["Cargadores y cables","Carga y conexión","#E7E5E0"],
  ["Auriculares","Con cable e inalámbricos","#D5D1C9"],
  ["Baterías portátiles","Carga encima","#2F333A"]
 ];
+
+function wa(t){
+  return "https://wa.me/" + CFG.whatsapp + "?text=" + encodeURIComponent(t);
+}
+var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ─── actualizar datos de tienda en el DOM ─── */
+function renderStoreInfo(){
+  document.title = CFG.name + " · iPhones y accesorios en " + CFG.cityShort;
+  
+  document.querySelectorAll(".dyn-name").forEach(function(el){ el.textContent = CFG.name; });
+  document.querySelectorAll(".dyn-loc").forEach(function(el){ el.textContent = CFG.location; });
+  document.querySelectorAll(".dyn-city").forEach(function(el){ el.textContent = CFG.cityShort; });
+  document.querySelectorAll(".dyn-wa-formatted").forEach(function(el){ el.textContent = CFG.whatsappFormatted; });
+  document.querySelectorAll(".dyn-ig-handle").forEach(function(el){ el.textContent = "@" + CFG.instagram; });
+  document.querySelectorAll(".dyn-ig-user").forEach(function(el){ el.textContent = CFG.instagram; });
+  document.querySelectorAll(".dyn-years").forEach(function(el){ el.textContent = CFG.years; });
+  document.querySelectorAll(".dyn-clients").forEach(function(el){ el.textContent = CFG.clients; });
+  document.querySelectorAll(".dyn-followers").forEach(function(el){ el.textContent = CFG.followers; });
+  document.querySelectorAll(".dyn-address-info").forEach(function(el){ el.textContent = CFG.addressInfo; });
+
+  document.querySelectorAll(".dyn-ig-link").forEach(function(a){
+    a.href = "https://www.instagram.com/" + CFG.instagram;
+  });
+
+  // Re-bind all data-wa
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    var raw = a.dataset.wa;
+    var msg = raw.replace(/IPHONESSTORE/g, CFG.name);
+    a.href = wa(msg);
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+  });
+
+  // Update schema
+  var schemaEl = document.getElementById("storeSchema");
+  if(schemaEl){
+    schemaEl.textContent = JSON.stringify({
+      "@context":"https://schema.org",
+      "@type":"Store",
+      "name": CFG.name,
+      "description": "Venta de equipos Apple y accesorios importados. Oficina en " + CFG.location,
+      "telephone": "+" + CFG.whatsapp,
+      "sameAs": ["https://www.instagram.com/" + CFG.instagram],
+      "address":{"@type":"PostalAddress","addressLocality":CFG.cityShort,"addressRegion":"Buenos Aires","addressCountry":"AR"}
+    });
+  }
+
+  // Cinta animada
+  var frases = [
+    CFG.years + " vendiendo",
+    "Más de <b>" + CFG.clients + "</b> clientes",
+    "Oficina en <b>" + CFG.cityShort + "</b>",
+    "Equipos y accesorios importados",
+    "Más de <b>" + CFG.followers + "</b> siguiéndonos",
+    "Consultás y te respondemos"
+  ];
+  var linea = frases.map(function(t){return '<span>'+t+' <em>!</em></span>';}).join("");
+  var tickEl = document.getElementById("tick");
+  if(tickEl) tickEl.innerHTML = linea + linea;
+}
 
 /* ─── material ─── */
 function capsTxt(caps){
@@ -888,7 +1103,8 @@ function capsTxt(caps){
 function stage(color,extra){
   return '<span class="fill" style="background:'+color+'"></span>'+
          '<span class="spec"></span><span class="sheen"></span>'+
-         '<span class="grain"></span><span class="vig"></span>'+(extra||"");
+         (extra||"")+
+         '<span class="grain"></span><span class="vig"></span>';
 }
 function bindSpec(el){
   if(RM) return;
@@ -901,12 +1117,6 @@ function bindSpec(el){
     el.style.setProperty("--mx","50%"); el.style.setProperty("--my","16%");
   });
 }
-
-/* ─── cinta ─── */
-var frases=["Cinco años vendiendo","Más de <b>5.000</b> clientes","Oficina en <b>Ramos Mejía</b>",
-  "Equipos y accesorios importados","Más de <b>52.000</b> siguiéndonos","Consultás y te respondemos"];
-var linea=frases.map(function(t){return '<span>'+t+' <em>!</em></span>';}).join("");
-document.getElementById("tick").innerHTML=linea+linea;
 
 /* ─── hero: acabado rotando ─── */
 var hs=document.getElementById("heroStage"), hsFill=hs.querySelector(".fill"),
@@ -935,15 +1145,16 @@ function pintaRiel(){
   track.querySelectorAll(".card-big,.rail-end").forEach(function(n){n.remove();});
   var html=d.map(function(p){
     var a=p.ac[0];
+    var ph = (p.img ? '<img class="ph" src="'+p.img+'" alt="'+p.n+'" loading="lazy">' : '');
     return '<button class="card-big stage" type="button" data-open="'+p.id+'" data-cursor '+
-      'aria-label="Ver '+p.n+'">'+stage(a[1])+
+      'aria-label="Ver '+p.n+'">'+stage(a[1], ph)+
       '<span class="go">Ver equipo</span>'+
       '<span class="info"><h3>'+p.n+'</h3><span class="ac">'+a[0]+'</span>'+
       '<span class="caps">'+capsTxt(p.caps)+'</span></span></button>';
   }).join("");
   html+='<div class="rail-end"><p class="h3">¿No está el que buscás?</p>'+
     '<p class="s">Contanos cuál buscás y te decimos si lo tenemos.</p>'+
-    '<a class="b b-l" href="'+wa("Hola IPHONESSTORE! Busco un modelo puntual, ¿lo consiguen?")+'" target="_blank" rel="noopener noreferrer">Pedir un modelo</a></div>';
+    '<a class="b b-l" href="'+wa("Hola " + CFG.name + "! Busco un modelo puntual, ¿lo consiguen?")+'" target="_blank" rel="noopener noreferrer">Pedir un modelo</a></div>';
   track.insertAdjacentHTML("beforeend",html);
   track.querySelectorAll(".card-big").forEach(function(c){
     bindSpec(c);
@@ -960,9 +1171,9 @@ function pintaMuro(){
     return '<div class="tile stage">'+stage(a[1])+
       '<span class="t"><b>'+p.n+'</b><span>'+a[0]+'</span></span></div>';
   }
-  var say1='<div class="tile say"><p>+5.000<small>clientes en cinco años</small></p></div>';
-  var say2='<div class="tile say"><p>Ramos<br>Mejía<small>oficina propia</small></p></div>';
-  var say3='<div class="tile say"><p>+52.000<small>nos siguen en Instagram</small></p></div>';
+  var say1='<div class="tile say"><p>'+CFG.clients+'<small>clientes satisfechos</small></p></div>';
+  var say2='<div class="tile say"><p>'+CFG.cityShort+'<small>oficina propia</small></p></div>';
+  var say3='<div class="tile say"><p>'+CFG.followers+'<small>en Instagram</small></p></div>';
   var a=[tile(base[0],0),say1,tile(base[2],1),tile(base[3],0),tile(base[1],1),say2,tile(base[4],0),tile(base[5],2)];
   var b=[tile(base[6],0),tile(base[3],1),say3,tile(base[7],0),tile(base[2],2),tile(base[0],3),tile(base[5],1),tile(base[1],2)];
   document.getElementById("wallA").innerHTML=a.join("")+a.join("");
@@ -1006,14 +1217,15 @@ function pinta(){
   if(!l.length){
     grid.innerHTML='<div class="empty"><p class="h3">No encontramos ese modelo</p>'+
       '<p class="p" style="margin:14px auto 22px">Escribinos y te decimos si lo tenemos.</p>'+
-      '<a class="b b-w" href="'+wa("Hola IPHONESSTORE! Busco un modelo que no vi en la web. ¿Lo consiguen?")+'" target="_blank" rel="noopener noreferrer">Preguntar por WhatsApp</a></div>';
+      '<a class="b b-w" href="'+wa("Hola " + CFG.name + "! Busco un modelo que no vi en la web. ¿Lo consiguen?")+'" target="_blank" rel="noopener noreferrer">Preguntar por WhatsApp</a></div>';
     return;
   }
   grid.innerHTML=l.map(function(p,i){
     var k=pick[p.id]||0, a=p.ac[k];
+    var ph = (p.img ? '<img class="ph" src="'+p.img+'" alt="'+p.n+'" loading="lazy">' : '');
     return '<article class="eq'+(i===0?' eq-1':'')+'" data-id="'+p.id+'">'+
       '<button class="eq-stage stage" type="button" data-open="'+p.id+'" data-cursor aria-label="Ver '+p.n+'">'+
-        stage(a[1])+
+        stage(a[1], ph)+
         '<span class="eq-info"><h3>'+p.n+'</h3><span class="ac">'+a[0]+'</span></span>'+
       '</button>'+
       '<div class="eq-foot"><span>'+capsTxt(p.caps)+'</span>'+
@@ -1046,7 +1258,7 @@ document.getElementById("q").addEventListener("input",function(e){st.q=e.target.
 
 /* ─── accesorios ─── */
 document.getElementById("acc").innerHTML=ACC.map(function(a){
-  return '<a href="'+wa("Hola IPHONESSTORE! Quiero consultar por "+a[0].toLowerCase()+". ¿Qué tienen disponible?")+'" target="_blank" rel="noopener noreferrer" '+
+  return '<a href="'+wa("Hola " + CFG.name + "! Quiero consultar por "+a[0].toLowerCase()+". ¿Qué tienen disponible?")+'" target="_blank" rel="noopener noreferrer" '+
     'data-c="'+a[2]+'" data-n="'+a[0]+'" data-d="'+a[1]+'">'+
     '<span class="chip-m stage">'+stage(a[2])+'</span>'+
     '<div><h3>'+a[0]+'</h3><p class="d">'+a[1]+'</p></div><span class="go">Consultar</span></a>';
@@ -1068,7 +1280,7 @@ document.getElementById("acc").innerHTML=ACC.map(function(a){
 var dw=document.getElementById("dw"), dwS=document.getElementById("dwS"), veil=document.getElementById("veil"),
     cta=document.getElementById("dwCta"), sel={}, last=null;
 function msg(){
-  return "Hola IPHONESSTORE! Vi el "+sel.p.n+" de "+sel.cap+" en "+sel.ac[0]+
+  return "Hola " + CFG.name + "! Vi el " + sel.p.n + " de " + sel.cap + " en " + sel.ac[0] +
          " en la web. ¿Me pasan precio y disponibilidad?";
 }
 function sync(){
@@ -1083,8 +1295,9 @@ function abrir(id){
   last=document.activeElement;
   var k=pick[id]||0;
   sel={p:p,cap:p.caps[0],ac:p.ac[k]};
+  var ph = (p.img ? '<img class="ph" src="'+p.img+'" alt="'+p.n+'">' : '');
   dwS.innerHTML=
-    '<div class="dw-stage stage">'+stage(p.ac[k][1])+'</div>'+
+    '<div class="dw-stage stage">'+stage(p.ac[k][1], ph)+'</div>'+
     '<h2 id="dwT">'+p.n+'</h2>'+
     '<div class="grp"><p class="lb">Capacidad: <b id="lbC">'+sel.cap+'</b></p><div class="ops" id="oC">'+
       p.caps.map(function(c,j){return '<button class="op" type="button" aria-pressed="'+(j===0)+'" data-c="'+c+'">'+c+'</button>';}).join("")+
@@ -1094,7 +1307,7 @@ function abrir(id){
     '</div></div>'+
     '<div class="spec-list">'+
       '<div><span>Tu selección</span><b id="dwSel"></b></div>'+
-      '<div><span>Retiro</span><b>Oficina de Ramos Mejía</b></div>'+
+      '<div><span>Retiro</span><b>Oficina de ' + CFG.cityShort + '</b></div>'+
       '<div><span>Precio</span><b>'+(p.precio||"Te lo pasamos hoy")+'</b></div>'+
     '</div>'+
     '<div class="prev"><p class="lb">Mensaje que se envía</p><p id="msgT"></p></div>';
@@ -1129,12 +1342,7 @@ function cerrar(){
 document.getElementById("dwX").addEventListener("click",cerrar);
 veil.addEventListener("click",cerrar);
 
-/* ─── whatsapp ─── */
-document.querySelectorAll("[data-wa]").forEach(function(a){
-  a.href=wa(a.dataset.wa); a.target="_blank"; a.rel="noopener noreferrer";
-});
-
-/* ─── menú ─── */
+/* ─── menú mobile ─── */
 var menu=document.getElementById("menu"), burger=document.getElementById("burger");
 function openMenu(v){
   menu.classList.toggle("on",v); menu.setAttribute("aria-hidden",String(!v));
@@ -1144,11 +1352,37 @@ burger.addEventListener("click",function(){openMenu(true);});
 document.getElementById("menuX").addEventListener("click",function(){openMenu(false);});
 menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){openMenu(false);});});
 
-/* ─── panel ─── */
+/* ─── panel & demo switcher ─── */
 var panel=document.getElementById("panel"), pnBody=document.getElementById("pnBody"),
     toast=document.getElementById("toast"), tt;
 function say(t){toast.textContent=t;toast.classList.add("on");clearTimeout(tt);
-  tt=setTimeout(function(){toast.classList.remove("on");},1900);}
+  tt=setTimeout(function(){toast.classList.remove("on");},2200);}
+
+// Tabs del panel
+var tabBtnCat=document.getElementById("tabBtnCat"), tabBtnDemo=document.getElementById("tabBtnDemo"),
+    tabPanelCat=document.getElementById("tabPanelCat"), tabPanelDemo=document.getElementById("tabPanelDemo");
+
+if(tabBtnCat && tabBtnDemo){
+  tabBtnCat.addEventListener("click",function(){
+    tabBtnCat.classList.add("active"); tabBtnDemo.classList.remove("active");
+    tabPanelCat.classList.add("active"); tabPanelDemo.classList.remove("active");
+  });
+  tabBtnDemo.addEventListener("click",function(){
+    tabBtnDemo.classList.add("active"); tabBtnCat.classList.remove("active");
+    tabPanelDemo.classList.add("active"); tabPanelCat.classList.remove("active");
+    populateStoreForm();
+  });
+}
+
+function saveToLocalStorage(){
+  try{
+    localStorage.setItem("iphone_store_demo_config", JSON.stringify({
+      store: CFG,
+      products: P
+    }));
+  }catch(e){}
+}
+
 function pintaPanel(){
   pnBody.innerHTML=P.map(function(p){
     return '<tr data-id="'+p.id+'">'+
@@ -1162,6 +1396,7 @@ function pintaPanel(){
     i.addEventListener("input",function(){
       var id=i.closest("tr").dataset.id;
       P.forEach(function(p){if(p.id===id)p.precio=i.value;});
+      saveToLocalStorage();
     });
   });
   pnBody.querySelectorAll(".sw").forEach(function(s){
@@ -1169,14 +1404,89 @@ function pintaPanel(){
       var id=s.closest("tr").dataset.id, f=s.dataset.f, v=s.getAttribute("aria-pressed")!=="true";
       s.setAttribute("aria-pressed",String(v));
       P.forEach(function(p){if(p.id===id)p[f]=v;});
+      saveToLocalStorage();
       say(f==="vis"?(v?"Equipo publicado":"Equipo despublicado"):(v?"Marcado como destacado":"Ya no es destacado"));
     });
   });
 }
+
+function populateStoreForm(){
+  document.getElementById("fName").value = CFG.name || "";
+  document.getElementById("fWa").value = CFG.whatsapp || "";
+  document.getElementById("fWaFmt").value = CFG.whatsappFormatted || "";
+  document.getElementById("fIg").value = CFG.instagram || "";
+  document.getElementById("fLoc").value = CFG.location || "";
+  document.getElementById("fCity").value = CFG.cityShort || "";
+  document.getElementById("fYears").value = CFG.years || "";
+  document.getElementById("fClients").value = CFG.clients || "";
+}
+
+// Preset buttons
+document.querySelectorAll("[data-preset]").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var pKey = btn.dataset.preset;
+    if(PRESETS[pKey]){
+      Object.assign(CFG, PRESETS[pKey]);
+      populateStoreForm();
+      say("Preset '" + PRESETS[pKey].name + "' cargado. Tocá Guardar para aplicar.");
+    }
+  });
+});
+
+// Guardar configuración de tienda
+document.getElementById("btnSaveStore").addEventListener("click", function(){
+  CFG.name = document.getElementById("fName").value.trim() || CFG.name;
+  CFG.whatsapp = document.getElementById("fWa").value.trim() || CFG.whatsapp;
+  CFG.whatsappFormatted = document.getElementById("fWaFmt").value.trim() || CFG.whatsappFormatted;
+  CFG.instagram = document.getElementById("fIg").value.trim().replace(/^@/,"") || CFG.instagram;
+  CFG.location = document.getElementById("fLoc").value.trim() || CFG.location;
+  CFG.cityShort = document.getElementById("fCity").value.trim() || CFG.cityShort;
+  CFG.years = document.getElementById("fYears").value.trim() || CFG.years;
+  CFG.clients = document.getElementById("fClients").value.trim() || CFG.clients;
+
+  saveToLocalStorage();
+  renderStoreInfo();
+  pinta();
+  pintaRiel();
+  pintaMuro();
+  say("¡Datos de " + CFG.name + " aplicados en toda la demo!");
+});
+
+// Restablecer demo original
+document.getElementById("btnResetStore").addEventListener("click", function(){
+  try{ localStorage.removeItem("iphone_store_demo_config"); }catch(e){}
+  Object.assign(CFG, PRESETS.orig);
+  populateStoreForm();
+  renderStoreInfo();
+  pinta();
+  pintaRiel();
+  pintaMuro();
+  say("Demo restablecida a valores de fábrica.");
+});
+
+// Copiar store.config.js
+document.getElementById("btnCopyConfig").addEventListener("click", function(){
+  var exportCode = "window.STORE_CONFIG = " + JSON.stringify({
+    store: CFG,
+    products: P,
+    accessories: ACC
+  }, null, 2) + ";\n";
+  navigator.clipboard.writeText(exportCode).then(function(){
+    say("¡Código de store.config.js copiado al portapapeles!");
+  }).catch(function(){
+    prompt("Copiá esta configuración:", exportCode);
+  });
+});
+
 function openPanel(v){
   panel.classList.toggle("on",v); document.body.style.overflow=v?"hidden":"";
-  if(v){pintaPanel();document.getElementById("panelX").focus();}
-  else {pinta();pintaRiel();pintaMuro();}
+  if(v){
+    pintaPanel();
+    populateStoreForm();
+    document.getElementById("panelX").focus();
+  } else {
+    pinta(); pintaRiel(); pintaMuro();
+  }
 }
 document.getElementById("openPanel").addEventListener("click",function(){openPanel(true);});
 document.getElementById("panelX").addEventListener("click",function(){openPanel(false);});
@@ -1253,6 +1563,7 @@ if("IntersectionObserver" in window){
 }
 
 /* ─── arranque ─── */
+renderStoreInfo();
 chips(document.getElementById("chL"),uniq(function(p){return [p.l];}),"l","Todos");
 chips(document.getElementById("chC"),uniq(function(p){return p.caps;}),"c","Toda capacidad");
 pinta(); pintaRiel(); pintaMuro(); onScroll();

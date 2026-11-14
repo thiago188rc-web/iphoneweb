@@ -1,81 +1,82 @@
-# IPHONESSTORE — sitio web
+# 📱 iPhone Store Template — Plantilla Web para Tiendas de iPhone
 
-Sitio estático. HTML, CSS y JavaScript en un solo archivo, sin build, sin
-dependencias y sin backend. Se despliega tal cual está.
+Plantilla web de alta conversión y estética Apple Titanium, diseñada específicamente para tiendas de iPhone y accesorios. 100% estática, ultrarrápida, sin dependencias complejas y optimizada para despliegue directo en **Vercel**.
 
-## Estructura
+Incluye un **sistema de materiales dinámicos** (luz, grano y reflejo de acabados sin necesidad obligatoria de fotos), integración con WhatsApp en cada acción de compra, catálogo interactivo con filtros, y un **motor de personalización para demostraciones en vivo**.
 
-```
-index.html            todo el sitio (marcado, estilos y comportamiento)
-assets/logo.png       logo oficial de IPHONESSTORE
-assets/favicon.png    isotipo sobre negro, para la pestaña del navegador
-assets/og.png         1200x630, la miniatura que se ve al compartir el link
-img/                  carpeta para las fotos reales (ver img/LEEME.txt)
-vercel.json           cache de assets y URLs limpias
-robots.txt            indexación abierta
-```
+---
 
-## Deploy en Vercel
+## 🚀 Estructura del Proyecto
 
-**Opción rápida.** Entrar a vercel.com, "Add New… → Project → Deploy",
-arrastrar esta carpeta. Vercel la detecta como sitio estático, no hay que
-elegir framework ni configurar comando de build.
-
-**Opción con Git.** Subir la carpeta a un repositorio, importarlo desde
-Vercel y dejar todo en blanco: Framework Preset "Other", Build Command
-vacío, Output Directory vacío. Cada push publica.
-
-## Pendiente para cuando haya dominio
-
-Dos cosas hay que tocar en el `<head>` de `index.html` una vez que la URL
-definitiva esté conectada:
-
-1. Agregar la etiqueta canonical con esa URL.
-2. Cambiar `og:image` y `twitter:image` de `/assets/og.png` a la ruta
-   absoluta `https://TUDOMINIO/assets/og.png`. La ruta relativa funciona
-   en la mayoría de los lectores de enlaces, pero la especificación pide
-   una URL absoluta y algunos la exigen.
-
-Después de cambiarlo, verificar la miniatura enviándose el link a uno
-mismo por WhatsApp. WhatsApp cachea la vista previa: si ya compartiste el
-link antes del cambio, agregarle `?v=2` al final para forzar la relectura.
-
-## Probarlo localmente
-
-Abrir `index.html` con doble clic alcanza. Para servirlo por HTTP:
-
-```
-npx serve .
+```text
+├── index.html            Sitio completo (marcado semántico, diseño responsivo y lógica interactiva)
+├── store.config.js       Configuración central de la tienda (datos, WhatsApp, Instagram, catálogo)
+├── assets/
+│   ├── favicon.png       Favicon / Isotipo para navegador y móviles (Apple Touch Icon)
+│   ├── logo.png          Logotipo oficial en alta resolución
+│   └── og.png            Imagen Open Graph (1200x630 px) para previsualización en WhatsApp y redes
+├── img/
+│   └── LEEME.txt         Instrucciones para incorporar fotografías reales de equipos
+├── vercel.json           Configuración de caché optimizada y URLs limpias para Vercel
+├── robots.txt            Reglas de indexación para buscadores
+└── README.md             Documentación completa de uso y despliegue
 ```
 
-## Fotos
+---
 
-No hay ninguna fotografía en el sitio. Los productos se muestran con un
-sistema de materiales generado por código (color de acabado, reflejo y
-grano). Cuando lleguen las fotos reales de IPHONESSTORE se agregan en
-`img/` siguiendo las instrucciones de `img/LEEME.txt`, sin rehacer nada.
+## ⚡ Modo Demo Multitienda (Para Ofrecer a Clientes)
 
-No usar fotos de banco de imágenes ni de otras tiendas.
+Esta plantilla está preparada para ser presentada a diferentes tiendas de iPhone sin tener que editar código en cada reunión. Tenés **dos formas** de personalizarla:
 
-## Datos a confirmar con el cliente
+### 1. En Vivo desde el Panel de Gestión (Recomendado para reuniones)
+1. Abrí la web (localmente o en Vercel).
+2. En el pie de página (footer), hacé clic en el botón discreto **"Ingreso"**.
+3. Seleccioná la pestaña **"⚡ Personalizar Tienda / Demo"**.
+4. Podés elegir un preset rápido (ej: *IPHONESSTORE Ramos Mejía*, *Palermo Phone*, *Apple Point Belgrano*, *iStore Córdoba*) o ingresar directamente el nombre de la tienda del cliente, su WhatsApp y su usuario de Instagram.
+5. Hacé clic en **"Aplicar Cambios en Vivo"**:
+   - Se actualizan todos los botones de WhatsApp de la página con el número y nombre del cliente.
+   - Se actualizan los textos de la cabecera, pie de página, preguntas frecuentes y ubicación.
+   - El cambio queda guardado en el navegador (`localStorage`) para que puedas recargar la página frente al cliente sin perder los datos.
 
-El sitio está escrito para no afirmar nada que no esté verificado. Estos
-puntos hoy se resuelven derivando la respuesta a WhatsApp, y conviene
-reemplazarlos por la información real:
+### 2. Desde el archivo `store.config.js` (Para publicar una tienda definitiva)
+Modificá los valores del objeto `window.STORE_CONFIG`:
+```javascript
+window.STORE_CONFIG = {
+  store: {
+    name: "NOMBRE_DE_LA_TIENDA",
+    whatsapp: "54911XXXXXXXX", // Código de país + código de área + número (sin + ni espacios)
+    whatsappFormatted: "+54 9 11 XXXX-XXXX",
+    instagram: "usuario_instagram",
+    location: "Zona o Ciudad, Provincia",
+    cityShort: "Ciudad o Barrio",
+    ...
+  }
+};
+```
 
-- formas de pago
-- condiciones de garantía
-- envíos o entregas fuera de Ramos Mejía
-- plan canje
-- horarios de atención
-- dirección exacta de la oficina
-- condición de cada equipo (nuevo, usado, estado de batería)
-- precios
+---
 
-Todo eso se administra desde el catálogo del archivo, en el bloque de
-datos que está al principio del `<script>`.
+## 📸 Fotografías de Productos (`img/`)
 
-## Contacto de la tienda
+- Por defecto, el sitio utiliza un **sistema visual de materiales físicos** (reflejo, grano, brillo y tono titanio) para que se vea impecable sin depender de fotos de catálogo genéricas.
+- Cuando la tienda cuente con fotos reales de sus equipos en stock, basta con guardarlas en la carpeta `img/` (en formato WebP o PNG) y asignarlas en `store.config.js` mediante la propiedad `img`:
+  ```javascript
+  { id: "ip15pm", n: "iPhone 15 Pro Max", img: "img/ip15pm.webp", ... }
+  ```
+- Para más detalles técnicos de resolución y proporciones, consultá `img/LEEME.txt`.
 
-WhatsApp +54 9 11 4938-6108 · Instagram @iphonesstore.ar · Ramos Mejía,
-Buenos Aires.
+---
+
+## 🌐 Despliegue en Vercel
+
+El proyecto está vinculado y listo para desplegarse en **Vercel**:
+
+### Despliegue con Vercel CLI (Línea de Comandos)
+Desde la carpeta raíz del proyecto:
+```bash
+vercel --prod
+```
+
+### Despliegue mediante Git / GitHub
+1. Realizá un `git push` a la rama `main` en tu repositorio.
+2. Si el proyecto está conectado en el panel de Vercel, cada commit generará un despliegue automático en segundos.
